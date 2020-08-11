@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { axiosWithAuth as axios } from "../utils/axioswithAuth";
+import { Link } from "react-router-dom";
+import { Card, Button } from "reactstrap";
 const FriendsPage = () => {
   const [friends, setFriends] = useState({
     friendList: [],
@@ -21,12 +23,29 @@ const FriendsPage = () => {
 
   return (
     <div>
-      <h1>Friends</h1>
+      <h1 style={{ marginLeft: "40%", marginTop: "5px", marginBottom: "5px" }}>
+        Friends List
+      </h1>
+      <Button color="info" style={{ width: "15%", marginLeft: "40%" }}>
+        <Link to="/addfriend" style={{ color: "white" }}>
+          Add Friend
+        </Link>
+      </Button>
       {friends.friendList.map((friend) => {
         return (
           <div key={friend.id}>
-            <h1>{friend.name}</h1>
-            <p>{friend.email}</p>
+            <Card
+              style={{
+                width: "45%",
+                marginLeft: "25%",
+                alignItems: "center",
+                marginTop: "5px",
+              }}
+            >
+              <h1>{friend.name}</h1>
+              <p>Email: {friend.email}</p>
+              <p>Age: {friend.age}</p>
+            </Card>
           </div>
         );
       })}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { axiosWithAuth as axios } from "../utils/axioswithAuth";
 import { useHistory } from "react-router";
-import FriendsPage from "./friendsPage";
+import { Card, Button } from "reactstrap";
 const Login = () => {
   const history = useHistory();
   const [credentials, setCredentials] = useState({
@@ -32,20 +32,35 @@ const Login = () => {
   return (
     <div>
       <form onSubmit={login}>
-        <label>
-          User Name:
-          <input name="username" value={username} onChange={handleChange} />
-        </label>
-        <label>
-          Password:
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-          />
-        </label>
-        <button>Login</button>
+        <Card style={{ width: "35%", marginLeft: "30%", marginTop: "2%" }}>
+          <label style={{ marginLeft: "20%", marginTop: "10px" }}>
+            User Name:
+            <input
+              name="username"
+              value={username}
+              placeholder="username"
+              onChange={handleChange}
+              style={{ marginLeft: "5px" }}
+            />
+          </label>
+          <label style={{ marginLeft: "23%", marginTop: "10px" }}>
+            Password:
+            <input
+              style={{ marginLeft: "5px" }}
+              type="password"
+              name="password"
+              placeholder="password"
+              value={password}
+              onChange={handleChange}
+            />
+          </label>
+          <Button
+            color="info"
+            style={{ width: "15%", marginLeft: "45%", marginBottom: "10px" }}
+          >
+            Login
+          </Button>
+        </Card>
       </form>
     </div>
   );
