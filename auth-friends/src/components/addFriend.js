@@ -4,14 +4,16 @@ import { useHistory } from "react-router";
 import { Card, Button } from "reactstrap";
 const AddFriend = () => {
   const [addFriend, setAddFriend] = useState({
+    id: Date.now(),
     name: "",
     email: "",
     age: "",
+    quote: "",
   });
 
   const history = useHistory();
 
-  const { name, email, age } = addFriend;
+  const { name, email, age, quote } = addFriend;
 
   const adding = (e) => {
     e.preventDefault();
@@ -36,7 +38,8 @@ const AddFriend = () => {
         <Card style={{ width: "35%", marginLeft: "30%", marginTop: "2%" }}>
           <h1 style={{ marginLeft: "25%", marginTop: "2%" }}>Add a friend!</h1>
           <label style={{ marginLeft: "22%", marginTop: "10px" }}>
-            Name: <input name="name" value={name} onChange={handleChange} />
+            Name:{" "}
+            <input name="name" value={name} onChange={handleChange} required />
           </label>
           <label style={{ marginLeft: "23%", marginTop: "10px" }}>
             Email:{" "}
@@ -45,10 +48,21 @@ const AddFriend = () => {
               type="email"
               value={email}
               onChange={handleChange}
+              required
             />
+            <label style={{ marginTop: "10px" }}>
+              Quote:
+              <input
+                name="quote"
+                value={quote}
+                onChange={handleChange}
+                required
+              />
+            </label>
           </label>
           <label style={{ marginLeft: "25%", marginTop: "10px" }}>
-            Age: <input name="age" value={age} onChange={handleChange} />
+            Age:{" "}
+            <input name="age" value={age} onChange={handleChange} required />
           </label>
           <Button
             color="info"

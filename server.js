@@ -14,36 +14,42 @@ let friends = [
     name: "Rachel Green",
     age: 30,
     email: "rachel@friends.com",
+    quote: "Well, maybe I don’t need your money. Wait, wait, I said maybe!",
   },
   {
     id: 2,
     name: "Joey Tribbiani",
     age: 34,
     email: "joey@friends.com",
+    quote: "Joey doesn’t share food!",
   },
   {
     id: 3,
     name: "Chandler Bing",
     age: 32,
     email: "chandler@friends.com",
+    quote: "Hi, I’m Chandler. I make jokes when I’m uncomfortable.",
   },
   {
     id: 4,
     name: "Ross Geller",
     age: 32,
     email: "ross@friends.com",
+    quote: "We were on a break!",
   },
   {
     id: 5,
     name: "Monica Bing",
     age: 31,
     email: "monica@friends.com",
+    quote: "Seven!",
   },
   {
     id: 6,
     name: "Phoebe Buffay-Hannigan",
     age: 30,
     email: "phoebe@friends.com",
+    quote: "I wish I could, but I don’t want to.",
   },
 ];
 

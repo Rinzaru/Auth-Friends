@@ -17,6 +17,18 @@ const FriendsPage = () => {
       .catch((err) => console.log(err));
   };
 
+  console.log(friends.friendList, "friends");
+
+  const deleteData = (friendId) => {
+    axios()
+      .delete(`/api/friends/${friendId}`)
+      .then((res) => {
+        console.log(res.data);
+        setFriends({ ...friends, friendList: [...res.data] });
+      })
+      .catch((err) => console.log(err));
+  };
+
   useEffect(() => {
     getData();
   }, []);
@@ -44,7 +56,16 @@ const FriendsPage = () => {
             >
               <h1>{friend.name}</h1>
               <p>Email: {friend.email}</p>
+              <p>Quote: “{friend.quote}”</p>
               <p>Age: {friend.age}</p>
+              <Button
+                color="info"
+                onClick={() => {
+                  deleteData(friend.id);
+                }}
+              >
+                Delete Friend
+              </Button>
             </Card>
           </div>
         );
